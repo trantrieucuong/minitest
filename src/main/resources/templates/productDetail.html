@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Detail</title>
+</head>
+<style>
+    body {
+        font-family: 'Work Sans', sans-serif;
+    }
+
+    .product {
+        transition: .4s all ease-in-out;
+        border: 4px solid #cccccc8c;
+        margin: 10px;
+        width: 290px;
+        display: inline-block;
+        vertical-align: top;
+        border-radius: 15px;
+    }
+    .product:hover {
+        transition: .4s all ease-in-out;
+        border: 4px solid #bdbdbdb9;
+    }
+
+    .product img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 10px 10px 0 0;
+    }
+    .product-link {
+        text-decoration: none;
+        color: #000;
+    }
+    .rating-stars {
+        color: #FFD700;
+    }
+</style>
+<body>
+<h1>Product Detail</h1>
+<div th:if="${product}"style="width: 50%;height: auto;background-color: #747474;border: black;border-radius:10px ">
+    <h2 th:text="${product.name}"></h2>
+    <p><strong>ID:</strong> <span th:text="${product.id}"></span></p>
+    <p><strong>Description:</strong> <span th:text="${product.description}"></span></p>
+    <p><strong>Price:</strong> <span th:text="${product.price}"></span></p>
+    <p><strong>Rating:</strong> <span th:text="${product.rating}"></span></p>
+    <p><strong>Thumbnail:</strong> <img th:src="${product.thumbnail}" alt="Product Thumbnail" style="width: 70%;height: auto;border-radius: 10px;"align="center"></p>
+    <!-- Hiển thị các thông tin khác của sản phẩm -->
+    <!-- Ví dụ: -->
+    <!-- <p><strong>Price Discount:</strong> <span th:text="${product.priceDiscount}"></span></p> -->
+</div>
+<div th:unless="${product}">
+    <p>No product found!</p>
+</div>
+</body>
+</html>
+
